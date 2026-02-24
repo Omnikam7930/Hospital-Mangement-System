@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Capture Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .container { max-width: 800px; margin: 0 auto; }
+        video { width: 300px; height: 200px; border: 2px solid #ccc; margin: 10px; }
+        canvas { width: 300px; height: 200px; border: 2px solid #blue; margin: 10px; }
+        img { width: 300px; height: 200px; border: 2px solid #green; margin: 10px; }
+        button { padding: 10px 20px; margin: 10px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background: #0056b3; }
+        .log { background: #f8f9fa; padding: 10px; margin: 10px 0; border-left: 4px solid #007bff; font-family: monospace; white-space: pre-wrap; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Image Capture Test</h1>
+        <p>This test will help us debug the image capture process.</p>
+        
+        <div>
+            <button onclick="startCamera()">Start Camera</button>
+            <button onclick="capturePhoto()">Capture Photo</button>
+            <button onclick="clearLogs()">Clear Logs</button>
+        </div>
+        
+        <div>
+            <video id="video" autoplay muted style="display: none;"></video>
+            <canvas id="canvas" style="display: none;"></canvas>
+            <img id="capturedImage" alt="Captured Image" style="display: none;">
+        </div>
+        
+        <div id="logs" class="log">Logs will appear here...</div>
+    </div>
+
+    <script>
+        let video, canvas, context, capturedImage;
+        let stream = null;
+
+        function log(message) {
+            const logs = document.getElementById('logs');
+            logs.textContent += new Date().toLocaleTimeString() + ': ' + message + '\n';
+            console.log(message);
+        }
+
+        function clearLogs() {
+            document.getElementById('logs').textContent = 'Logs cleared...\n';
+        }
+
+        async function startCamera() {
+            try {
+                log('🎥 Starting camera...');
+                stream = await navigator.mediaDevices.getUserMedia({ 
+                    video: { 
+                        width: { ideal: 640 },
+                        height: { ideal: 480 }
+                    } 
+                });
+                
+                video = document.getElementById('video');
+                canvas = document.getElementById('canvas');
+                context = canvas.getContext('2d');
+                capturedImage = document.getElementById('capturedImage');
+                
+                video.srcObject = stream;
+                video.style.display = 'block';
+                canvas.style.display = 'block';
+                
+                video.onloadedmetadata = () => {
+                    log(`📹 Video loaded: ${video.videoWidth}x${video.videoHeight}`);
+                    canvas.width = video.videoWidth;
+                    canvas.height = video.videoHeight;
+                    log(`🖼️ Canvas set to: ${canvas.width}x${canvas.height}`);
+                };
+                
+                log('✅ Camera started successfully');
+            } catch (error) {
+                log('❌ Camera error: ' + error.message);
+            }
+        }
+
+        function capturePhoto() {
+            if (!video || !canvas || !context) {
+                log('❌ Camera not ready');
+                return;
+            }
+
+            try {
+                log('📸 Capturing photo...');
+                
+                // Set canvas dimensions to match video
+                canvas.width = video.videoWidth;
+                canvas.height = video.videoHeight;
+                log(`🖼️ Canvas dimensions: ${canvas.width}x${canvas.height}`);
+                log(`📹 Video dimensions: ${video.videoWidth}x${video.videoHeight}`);
+                
+                // Draw video frame to canvas
+                context.drawImage(video, 0, 0, canvas.width, canvas.height);
+                log('✅ Video frame drawn to canvas');
+                
+                // Convert to different formats
+                const jpegData = canvas.toDataURL('image/jpeg', 0.8);
+                const pngData = canvas.toDataURL('image/png');
+                
+                log(`📊 JPEG data length: ${jpegData.length}`);
+                log(`📊 PNG data length: ${pngData.length}`);
+                log(`📊 JPEG preview: ${jpegData.substring(0, 50)}...`);
+                log(`📊 PNG preview: ${pngData.substring(0, 50)}...`);
+                
+                // Test if the data is valid
+                const testImg = new Image();
+                testImg.onload = () => {
+                    log('✅ JPEG image loads successfully');
+                    capturedImage.src = jpegData;
+                    capturedImage.style.display = 'block';
+                };
+                testImg.onerror = () => {
+                    log('❌ JPEG image failed to load');
+                };
+                testImg.src = jpegData;
+                
+                // Also test PNG
+                const testImgPng = new Image();
+                testImgPng.onload = () => {
+                    log('✅ PNG image loads successfully');
+                };
+                testImgPng.onerror = () => {
+                    log('❌ PNG image failed to load');
+                };
+                testImgPng.src = pngData;
+                
+            } catch (error) {
+                log('❌ Capture error: ' + error.message);
+                console.error('Capture error:', error);
+            }
+        }
+
+        // Clean up on page unload
+        window.addEventListener('beforeunload', () => {
+            if (stream) {
+                stream.getTracks().forEach(track => track.stop());
+            }
+        });
+    </script>
+</body>
+</html>

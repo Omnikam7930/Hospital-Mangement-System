@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital01 - PowerPoint Presentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f0f0f0;
+            overflow-x: hidden;
+        }
+        
+        .slide {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 60px;
+            page-break-after: always;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Slide Backgrounds */
+        .slide-1 { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; }
+        .slide-2 { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; }
+        .slide-3 { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white; }
+        .slide-4 { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); color: white; }
+        .slide-5 { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); color: white; }
+        .slide-6 { background: linear-gradient(135deg, #30cfd0 0%, #330867 100%); color: white; }
+        .slide-7 { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); color: #333; }
+        .slide-8 { background: linear-gradient(135deg, #ff9a56 0%, #ff6a88 100%); color: white; }
+        .slide-9 { background: linear-gradient(135deg, #2e2e78 0%, #662d91 100%); color: white; }
+        .slide-10 { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; }
+        
+        .slide h1 {
+            font-size: 4em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+        
+        .slide h2 {
+            font-size: 3em;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .slide h3 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+        
+        .slide p, .slide li {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            line-height: 1.8;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+        
+        .slide ul {
+            list-style: none;
+            margin-left: 0;
+        }
+        
+        .slide li {
+            margin-bottom: 25px;
+            padding-left: 50px;
+            position: relative;
+        }
+        
+        .slide li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        
+        .subtitle {
+            font-size: 2.5em;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+        
+        .tech-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 30px 0;
+            max-width: 1000px;
+        }
+        
+        .tech-box {
+            background: rgba(255,255,255,0.2);
+            padding: 30px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            font-size: 1.3em;
+            font-weight: 600;
+        }
+        
+        .demo-box {
+            background: rgba(255,255,255,0.3);
+            padding: 40px;
+            border-radius: 15px;
+            margin: 30px 0;
+            text-align: center;
+            font-size: 1.6em;
+            font-weight: 600;
+        }
+        
+        .code-text {
+            font-family: 'Courier New', monospace;
+            background: rgba(0,0,0,0.3);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-size: 1.4em;
+            overflow-x: auto;
+        }
+        
+        .feature-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .feature-item {
+            background: rgba(255,255,255,0.2);
+            padding: 25px;
+            border-radius: 10px;
+            font-size: 1.3em;
+        }
+        
+        .feature-item strong {
+            display: block;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+        
+        .logo-text {
+            font-size: 5em;
+            font-weight: 900;
+            margin: 20px 0;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+        }
+        
+        .date-text {
+            font-size: 1.8em;
+            opacity: 0.8;
+            margin-top: 60px;
+        }
+        
+        .center-content {
+            text-align: center;
+            max-width: 1000px;
+        }
+        
+        @media print {
+            body {
+                background: white;
+            }
+            .slide {
+                page-break-after: always;
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- SLIDE 1: Title Slide -->
+<div class="slide slide-1">
+    <div class="center-content">
+        <div class="logo-text">HOSPITAL01</div>
+        <p class="subtitle">Full-Stack Hospital Management System</p>
+        <p style="font-size: 2em; margin-top: 60px;">A Modern Healthcare Solution</p>
+        <p class="date-text">November 11, 2025</p>
+    </div>
+</div>
+
+<!-- SLIDE 2: Project Overview -->
+<div class="slide slide-2">
+    <div class="center-content">
+        <h2>Project Overview</h2>
+        <ul style="font-size: 1.4em; text-align: left;">
+            <li>Secure patient access to medical records</li>
+            <li>Doctor portal for patient management</li>
+            <li>Emergency access system</li>
+            <li>Authentication & data security</li>
+            <li>Cloud-based scalable architecture</li>
+        </ul>
+    </div>
+</div>
+
+<!-- SLIDE 3: Tech Stack -->
+<div class="slide slide-3">
+    <div class="center-content">
+        <h2>Technology Stack</h2>
+        <div class="tech-grid">
+            <div class="tech-box">
+                <strong>Frontend</strong><br>
+                React 18<br>
+                Vite 7<br>
+                TypeScript<br>
+                Tailwind CSS
+            </div>
+            <div class="tech-box">
+                <strong>Backend</strong><br>
+                Node.js<br>
+                Express 4<br>
+                Firebase Admin<br>
+                JWT Authentication
+            </div>
+            <div class="tech-box">
+                <strong>Database</strong><br>
+                Firestore<br>
+                Real-time Data<br>
+                Cloud Storage<br>
+                Security Rules
+            </div>
+            <div class="tech-box">
+                <strong>Deployment</strong><br>
+                Vercel/Netlify<br>
+                Heroku/Render<br>
+                Cloud Functions<br>
+                HTTPS/SSL
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- SLIDE 4: Key Features -->
+<div class="slide slide-4">
+    <div class="center-content">
+        <h2>Key Features</h2>
+        <div class="feature-list">
+            <div class="feature-item">
+                <strong>👤 User Portal</strong>
+                Patients register and manage records
+            </div>
+            <div class="feature-item">
+                <strong>👨‍⚕️ Doctor Portal</strong>
+                Doctors search and access patients
+            </div>
+            <div class="feature-item">
+                <strong>🚨 Emergency Access</strong>
+                Fast-track system for critical cases
+            </div>
+            <div class="feature-item">
+                <strong>🔐 Authentication</strong>
+                Secure login with Aadhaar & verification
+            </div>
+            <div class="feature-item">
+                <strong>📱 Responsive Design</strong>
+                Works on all devices seamlessly
+            </div>
+            <div class="feature-item">
+                <strong>🔍 Smart Search</strong>
+                Quick patient lookup capabilities
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- SLIDE 5: Architecture -->
+<div class="slide slide-5">
+    <div class="center-content">
+        <h2>System Architecture</h2>
+        <div style="font-size: 1.6em; text-align: center; margin: 40px 0;">
+            <div style="margin: 30px 0;">🖥️ CLIENT (Browser)</div>
+            <div style="font-size: 2em;">↓</div>
+            <div style="margin: 30px 0; background: rgba(255,255,255,0.3); padding: 20px; border-radius: 10px;">
+                ⚛️ REACT FRONTEND (Port 5173)
+            </div>
+            <div style="font-size: 2em;">↓</div>
+            <div style="margin: 30px 0;">🌐 HTTP Requests</div>
+            <div style="font-size: 2em;">↓</div>
+            <div style="margin: 30px 0; background: rgba(255,255,255,0.3); padding: 20px; border-radius: 10px;">
+                🚀 EXPRESS BACKEND (Port 5000)
+            </div>
+            <div style="font-size: 2em;">↓</div>
+            <div style="margin: 30px 0;">🔐 Firebase Admin SDK</div>
+            <div style="font-size: 2em;">↓</div>
+            <div style="margin: 30px 0; background: rgba(255,255,255,0.3); padding: 20px; border-radius: 10px;">
+                🗄️ FIRESTORE DATABASE
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- SLIDE 6: Live Demo URLs -->
+<div class="slide slide-6">
+    <div class="center-content">
+        <h2>Live Demo Access</h2>
+        <div class="demo-box">
+            <strong style="display: block; margin-bottom: 20px;">Local Access:</strong>
+            Frontend: http://localhost:5173<br>
+            Backend: http://localhost:5000
+        </div>
+        <div class="demo-box">
+            <strong style="display: block; margin-bottom: 20px;">API Endpoints:</strong>
+            Users: /api/users<br>
+            Doctors: /api/doctors<br>
+            Patients: /api/patients<br>
+            Emergency: /api/emergency
+        </div>
+    </div>
+</div>
+
+<!-- SLIDE 7: Demo Features -->
+<div class="slide slide-7">
+    <div class="center-content">
+        <h2>Demo Walkthrough</h2>
+        <ul style="text-align: left; color: #333; font-size: 1.6em;">
+            <li><strong>Step 1:</strong> Backend health check</li>
+            <li><strong>Step 2:</strong> Frontend homepage</li>
+            <li><strong>Step 3:</strong> User Portal login</li>
+            <li><strong>Step 4:</strong> Doctor Portal search</li>
+            <li><strong>Step 5:</strong> Emergency access system</li>
+        </ul>
+    </div>
+</div>
+
+<!-- SLIDE 8: Security & Compliance -->
+<div class="slide slide-8">
+    <div class="center-content">
+        <h2>Security & Compliance</h2>
+        <ul>
+            <li>🔐 Firebase Authentication</li>
+            <li>🛡️ JWT Token Verification</li>
+            <li>🔒 Environment Variable Protection</li>
+            <li>👥 Role-Based Access Control</li>
+            <li>🌐 HTTPS Encryption</li>
+            <li>🚫 CORS Protection</li>
+        </ul>
+    </div>
+</div>
+
+<!-- SLIDE 9: Deployment & Scalability -->
+<div class="slide slide-9">
+    <div class="center-content">
+        <h2>Deployment & Scalability</h2>
+        <div style="text-align: left; margin: 40px auto; max-width: 900px;">
+            <h3 style="margin-bottom: 20px;">Production Deployment</h3>
+            <p style="font-size: 1.4em; margin-bottom: 30px;">
+                ✓ Frontend on Vercel/Netlify<br>
+                ✓ Backend on Heroku/Render/AWS<br>
+                ✓ Database on Firebase<br>
+                ✓ Auto-scaling capabilities
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- SLIDE 10: Thank You -->
+<div class="slide slide-10">
+    <div class="center-content">
+        <h1 style="font-size: 3.5em; margin-bottom: 50px;">Thank You!</h1>
+        <p style="font-size: 2.5em; margin: 40px 0;">Questions & Answers</p>
+        <div style="margin-top: 80px; font-size: 1.8em;">
+            <p>GitHub Repository</p>
+            <p style="opacity: 0.9;">Hospital01 - Full-Stack Healthcare System</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital01 - Project Presentation Report</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+        
+        .page {
+            background: white;
+            margin: 20px auto;
+            padding: 60px 50px;
+            max-width: 900px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            min-height: 100vh;
+        }
+        
+        .page-break {
+            page-break-after: always;
+            margin-top: 40px;
+        }
+        
+        h1 {
+            color: #0066cc;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-align: center;
+            border-bottom: 3px solid #0066cc;
+            padding-bottom: 20px;
+        }
+        
+        h2 {
+            color: #0066cc;
+            font-size: 2em;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            border-left: 5px solid #0066cc;
+            padding-left: 15px;
+        }
+        
+        h3 {
+            color: #004999;
+            font-size: 1.5em;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        
+        .title-page {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            min-height: 100vh;
+        }
+        
+        .title-page h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            border: none;
+        }
+        
+        .title-page .subtitle {
+            font-size: 1.5em;
+            color: #666;
+            margin-bottom: 40px;
+        }
+        
+        .title-page .date {
+            font-size: 1.2em;
+            color: #888;
+            margin-top: 60px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+            line-height: 1.8;
+        }
+        
+        .highlight-box {
+            background: #e6f2ff;
+            border-left: 4px solid #0066cc;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .tech-stack {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .tech-item {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        
+        .tech-item strong {
+            color: #0066cc;
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        table th {
+            background: #0066cc;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        table td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .feature-card {
+            background: #f0f8ff;
+            padding: 20px;
+            border-radius: 5px;
+            border: 1px solid #0066cc;
+        }
+        
+        .feature-card h4 {
+            color: #0066cc;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .code-block {
+            background: #f5f5f5;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+        
+        .section-number {
+            color: #0066cc;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        
+        .footer {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            text-align: center;
+            color: #888;
+            font-size: 0.9em;
+        }
+        
+        .architecture-diagram {
+            background: #f0f8ff;
+            padding: 30px;
+            text-align: center;
+            border: 2px solid #0066cc;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-family: monospace;
+            line-height: 2;
+        }
+        
+        .demo-section {
+            background: #fff9e6;
+            border-left: 4px solid #ff9800;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .demo-section h3 {
+            color: #ff6f00;
+            margin-top: 0;
+        }
+        
+        .urls-box {
+            background: #e8f5e9;
+            border: 2px solid #4caf50;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        
+        .urls-box h4 {
+            color: #2e7d32;
+            margin-bottom: 15px;
+        }
+        
+        .url-item {
+            background: white;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 3px;
+            font-family: monospace;
+            border-left: 3px solid #4caf50;
+            padding-left: 15px;
+        }
+        
+        @media print {
+            body {
+                background: white;
+            }
+            .page {
+                margin: 0;
+                box-shadow: none;
+                page-break-inside: avoid;
+            }
+            .page-break {
+                page-break-before: always;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- SLIDE 1: TITLE PAGE -->
+<div class="page title-page">
+    <h1>Hospital01</h1>
+    <p class="subtitle">Full-Stack Hospital Management System</p>
+    <p class="subtitle">Project Presentation Report</p>
+    <p class="date">Date: November 11, 2025</p>
+    <p class="date">Technology Stack: React + Vite + Node.js + Express + Firebase</p>
+</div>
+
+<!-- SLIDE 2: EXECUTIVE SUMMARY -->
+<div class="page page-break">
+    <h2>Executive Summary</h2>
+    
+    <div class="highlight-box">
+        <strong>Project Overview:</strong>
+        <p>Hospital01 is a comprehensive full-stack web application designed to streamline hospital operations by providing secure access to patient records, doctor portals, and emergency access systems. The application leverages modern web technologies and Firebase for robust authentication and data management.</p>
+    </div>
+    
+    <h3>Key Objectives</h3>
+    <ul>
+        <li><strong>Patient Portal:</strong> Enable patients to securely access their medical records and information</li>
+        <li><strong>Doctor Portal:</strong> Provide doctors with tools to search, manage, and access patient information</li>
+        <li><strong>Emergency Access:</strong> Implement emergency protocols for rapid access to critical patient data</li>
+        <li><strong>Security:</strong> Ensure secure authentication and data protection using industry standards</li>
+        <li><strong>Scalability:</strong> Build a system that can handle multiple concurrent users and large datasets</li>
+    </ul>
+    
+    <h3>Project Status</h3>
+    <ul>
+        <li>✅ Frontend application deployed and running on Vite dev server</li>
+        <li>✅ Backend API server operational with Express.js</li>
+        <li>✅ Firebase integration configured and tested</li>
+        <li>✅ Core components implemented and functional</li>
+        <li>✅ Ready for presentation and demonstration</li>
+    </ul>
+</div>
+
+<!-- SLIDE 3: PROBLEM STATEMENT & SOLUTION -->
+<div class="page page-break">
+    <h2>Problem Statement & Solution</h2>
+    
+    <h3>Problem</h3>
+    <p>Hospitals need efficient systems to:</p>
+    <ul>
+        <li>Manage patient records securely and accessibly</li>
+        <li>Allow doctors quick access to patient information</li>
+        <li>Provide emergency access for critical situations</li>
+        <li>Authenticate users safely without compromising data</li>
+        <li>Scale to accommodate multiple simultaneous users</li>
+    </ul>
+    
+    <h3>Our Solution</h3>
+    <p>Hospital01 provides:</p>
+    <ul>
+        <li>A modern, responsive React-based user interface</li>
+        <li>Secure backend API with Express.js and Node.js</li>
+        <li>Firebase for authentication and real-time database capabilities</li>
+        <li>Modular component architecture for easy maintenance</li>
+        <li>RESTful API design for extensibility</li>
+        <li>Role-based access control (Patient, Doctor, Admin)</li>
+    </ul>
+    
+    <div class="highlight-box">
+        <strong>Target Users:</strong> Patients, Doctors, Hospital Administrators, Emergency Personnel
+    </div>
+</div>
+
+<!-- SLIDE 4: TECHNOLOGY STACK -->
+<div class="page page-break">
+    <h2>Technology Stack</h2>
+    
+    <h3>Frontend</h3>
+    <div class="tech-stack">
+        <div class="tech-item">
+            <strong>React 18.3.1</strong>
+            <p>Modern UI library for building interactive user interfaces</p>
+        </div>
+        <div class="tech-item">
+            <strong>Vite 7.1.5</strong>
+            <p>Ultra-fast build tool and development server</p>
+        </div>
+        <div class="tech-item">
+            <strong>TypeScript 5.5.3</strong>
+            <p>Typed superset of JavaScript for safer code</p>
+        </div>
+        <div class="tech-item">
+            <strong>Tailwind CSS 3.4.1</strong>
+            <p>Utility-first CSS framework for rapid styling</p>
+        </div>
+    </div>
+    
+    <h3>Backend</h3>
+    <div class="tech-stack">
+        <div class="tech-item">
+            <strong>Node.js 24.11.0</strong>
+            <p>JavaScript runtime for server-side execution</p>
+        </div>
+        <div class="tech-item">
+            <strong>Express 4.18.2</strong>
+            <p>Lightweight web application framework</p>
+        </div>
+        <div class="tech-item">
+            <strong>Firebase Admin SDK</strong>
+            <p>Official SDK for Firebase backend services</p>
+        </div>
+        <div class="tech-item">
+            <strong>JWT Authentication</strong>
+            <p>JSON Web Tokens for secure API authentication</p>
+        </div>
+    </div>
+    
+    <h3>Database & Services</h3>
+    <div class="tech-stack">
+        <div class="tech-item">
+            <strong>Firebase Firestore</strong>
+            <p>NoSQL cloud database with real-time capabilities</p>
+        </div>
+        <div class="tech-item">
+            <strong>Firebase Authentication</strong>
+            <p>Secure user authentication service</p>
+        </div>
+    </div>
+</div>
+
+<!-- SLIDE 5: ARCHITECTURE -->
+<div class="page page-break">
+    <h2>System Architecture</h2>
+    
+    <h3>High-Level Architecture</h3>
+    <div class="architecture-diagram">
+        CLIENT (Browser)<br>
+        ↓<br>
+        React + Vite (Port 5173)<br>
+        ↓<br>
+        HTTP Requests<br>
+        ↓<br>
+        Express.js Backend (Port 5000)<br>
+        ↓<br>
+        Firebase Admin SDK<br>
+        ↓<br>
+        Firestore Database + Authentication
+    </div>
+    
+    <h3>Backend Structure</h3>
+    <table>
+        <tr>
+            <th>Component</th>
+            <th>Purpose</th>
+        </tr>
+        <tr>
+            <td><strong>server.js</strong></td>
+            <td>Main entry point, initializes Express and routes</td>
+        </tr>
+        <tr>
+            <td><strong>config/firebase.js</strong></td>
+            <td>Firebase Admin SDK initialization and configuration</td>
+        </tr>
+        <tr>
+            <td><strong>middleware/authMiddleware.js</strong></td>
+            <td>JWT verification and user authentication</td>
+        </tr>
+        <tr>
+            <td><strong>controllers/</strong></td>
+            <td>Business logic for users, doctors, patients, emergencies</td>
+        </tr>
+        <tr>
+            <td><strong>routes/</strong></td>
+            <td>API endpoint definitions</td>
+        </tr>
+    </table>
+    
+    <h3>Frontend Structure</h3>
+    <table>
+        <tr>
+            <th>Component</th>
+            <th>Purpose</th>
+        </tr>
+        <tr>
+            <td><strong>App.tsx</strong></td>
+            <td>Root component and main routing</td>
+        </tr>
+        <tr>
+            <td><strong>components/</strong></td>
+            <td>Reusable UI components</td>
+        </tr>
+        <tr>
+            <td><strong>api.ts</strong></td>
+            <td>API communication layer</td>
+        </tr>
+        <tr>
+            <td><strong>firebase.ts</strong></td>
+            <td>Firebase client configuration</td>
+        </tr>
+    </table>
+</div>
+
+<!-- SLIDE 6: FEATURES & COMPONENTS -->
+<div class="page page-break">
+    <h2>Features & Components</h2>
+    
+    <h3>User-Facing Features</h3>
+    <div class="feature-grid">
+        <div class="feature-card">
+            <h4>👤 User Portal</h4>
+            <p>Patients can register, login, and manage their medical information</p>
+        </div>
+        <div class="feature-card">
+            <h4>👨‍⚕️ Doctor Portal</h4>
+            <p>Doctors can authenticate and search for patient records</p>
+        </div>
+        <div class="feature-card">
+            <h4>🚨 Emergency Access</h4>
+            <p>Fast-track access to critical patient information in emergencies</p>
+        </div>
+        <div class="feature-card">
+            <h4>🔐 Authentication</h4>
+            <p>Secure login with Aadhaar and biometric verification options</p>
+        </div>
+        <div class="feature-card">
+            <h4>📱 Responsive Design</h4>
+            <p>Works seamlessly on desktop, tablet, and mobile devices</p>
+        </div>
+        <div class="feature-card">
+            <h4>🔍 Patient Search</h4>
+            <p>Quick and efficient patient lookup by various criteria</p>
+        </div>
+    </div>
+    
+    <h3>API Endpoints</h3>
+    <div class="code-block">
+GET     /                           (Health Check)<br>
+GET     /api/users                  (List Users)<br>
+POST    /api/users                  (Create User)<br>
+GET     /api/doctors                (List Doctors)<br>
+POST    /api/doctors                (Register Doctor)<br>
+GET     /api/patients               (List Patients)<br>
+POST    /api/patients               (Add Patient)<br>
+GET     /api/emergency              (Emergency Access)<br>
+    </div>
+</div>
+
+<!-- SLIDE 7: PROJECT STRUCTURE -->
+<div class="page page-break">
+    <h2>Project Structure</h2>
+    
+    <div class="code-block">
+Hospital01/<br>
+├── Hospital-backend/              (Express.js Backend)<br>
+│   ├── server.js                  (Main entry point)<br>
+│   ├── config/firebase.js         (Firebase config)<br>
+│   ├── controllers/               (Business logic)<br>
+│   ├── middleware/                (Auth middleware)<br>
+│   ├── routes/                    (API routes)<br>
+│   ├── service-account-key.json   (Firebase credentials)<br>
+│   └── package.json<br>
+├── Hospital-main/                 (React Frontend)<br>
+│   ├── src/<br>
+│   │   ├── App.tsx                (Root component)<br>
+│   │   ├── api.ts                 (API layer)<br>
+│   │   ├── components/            (UI Components)<br>
+│   │   └── main.tsx               (Entry point)<br>
+│   ├── vite.config.ts             (Vite config)<br>
+│   └── package.json<br>
+└── package.json
+    </div>
+</div>
+
+<!-- SLIDE 8: LIVE DEMONSTRATION -->
+<div class="page page-break">
+    <h2>Live Demonstration</h2>
+    
+    <div class="demo-section">
+        <h3>Demo Checklist</h3>
+        <p>Before running the demo, ensure:</p>
+        <ul>
+            <li>✅ Node.js installed (version 20+)</li>
+            <li>✅ Both servers started and running</li>
+            <li>✅ Backend health check passes</li>
+            <li>✅ Frontend accessible in browser</li>
+        </ul>
+    </div>
+    
+    <h3>Running the Application</h3>
+    
+    <p><strong>Step 1: Start Backend Server</strong></p>
+    <div class="code-block">
+cd Hospital-backend<br>
+npm.cmd start
+    </div>
+    
+    <p><strong>Step 2: Start Frontend Application</strong></p>
+    <div class="code-block">
+cd Hospital-main<br>
+npm.cmd run dev
+    </div>
+    
+    <h3>Access Points</h3>
+    <div class="urls-box">
+        <h4>🔗 Application URLs</h4>
+        <div class="url-item">Backend API: http://localhost:5000</div>
+        <div class="url-item">Frontend App: http://localhost:5173</div>
+        <div class="url-item">Users API: http://localhost:5000/api/users</div>
+        <div class="url-item">Doctors API: http://localhost:5000/api/doctors</div>
+        <div class="url-item">Patients API: http://localhost:5000/api/patients</div>
+        <div class="url-item">Emergency API: http://localhost:5000/api/emergency</div>
+    </div>
+</div>
+
+<!-- SLIDE 9: DEMONSTRATION WALKTHROUGH -->
+<div class="page page-break">
+    <h2>Demonstration Walkthrough</h2>
+    
+    <h3>Step 1: Backend Health Check (1 min)</h3>
+    <div class="highlight-box">
+        <p><strong>Action:</strong> Open http://localhost:5000 in browser</p>
+        <p><strong>Expected Result:</strong> JSON response showing status "ok" and available API routes</p>
+        <p><strong>Say:</strong> "The backend is running successfully and can handle requests."</p>
+    </div>
+    
+    <h3>Step 2: Frontend Homepage (1 min)</h3>
+    <div class="highlight-box">
+        <p><strong>Action:</strong> Open http://localhost:5173 in browser</p>
+        <p><strong>Expected Result:</strong> See the main hospital application homepage with navigation</p>
+        <p><strong>Say:</strong> "This is our main user interface built with React. Notice the responsive design and navigation options."</p>
+    </div>
+    
+    <h3>Step 3: Explore User Portal (1.5 min)</h3>
+    <div class="highlight-box">
+        <p><strong>Action:</strong> Click on "User Portal" or navigate to user login/registration</p>
+        <p><strong>Expected Result:</strong> See login/registration form with Aadhaar entry field</p>
+        <p><strong>Say:</strong> "Patients can register here using their Aadhaar number. Let's see the form fields..."</p>
+    </div>
+    
+    <h3>Step 4: Doctor Portal (1.5 min)</h3>
+    <div class="highlight-box">
+        <p><strong>Action:</strong> Navigate to "Doctor Portal"</p>
+        <p><strong>Expected Result:</strong> See doctor authentication and patient search interface</p>
+        <p><strong>Say:</strong> "Doctors authenticate here and can search for patient records to provide care."</p>
+    </div>
+    
+    <h3>Step 5: Emergency Access (1 min)</h3>
+    <div class="highlight-box">
+        <p><strong>Action:</strong> Click on "Emergency Access" or open http://localhost:5000/api/emergency</p>
+        <p><strong>Expected Result:</strong> See emergency portal interface or API response</p>
+        <p><strong>Say:</strong> "In emergencies, authorized personnel can rapidly access critical patient information."</p>
+    </div>
+    
+    <p><strong>Total Demo Time: 5-6 minutes</strong></p>
+</div>
+
+<!-- SLIDE 10: SECURITY & DEPLOYMENT -->
+<div class="page page-break">
+    <h2>Security & Deployment</h2>
+    
+    <h3>Security Features</h3>
+    <ul>
+        <li><strong>Firebase Authentication:</strong> Industry-standard user authentication</li>
+        <li><strong>JWT Tokens:</strong> Secure API authentication with signed tokens</li>
+        <li><strong>Environment Variables:</strong> Sensitive credentials stored securely</li>
+        <li><strong>Role-Based Access Control:</strong> Different permissions for different user types</li>
+        <li><strong>HTTPS:</strong> Encrypted communication in production</li>
+        <li><strong>CORS:</strong> Cross-Origin Resource Sharing protection</li>
+    </ul>
+    
+    <h3>Credential Management</h3>
+    <div class="highlight-box">
+        <strong>⚠️ Important:</strong> Never commit credentials to version control!
+        <ul>
+            <li>service-account-key.json → Add to .gitignore</li>
+            <li>Use environment variables for API keys</li>
+            <li>Set GOOGLE_APPLICATION_CREDENTIALS in production</li>
+            <li>Use secure secret management (AWS Secrets Manager, Azure Key Vault, etc.)</li>
+        </ul>
+    </div>
+    
+    <h3>Deployment Options</h3>
+    <table>
+        <tr>
+            <th>Component</th>
+            <th>Deployment Platform</th>
+            <th>Notes</th>
+        </tr>
+        <tr>
+            <td>Frontend</td>
+            <td>Vercel, Netlify, Cloudflare</td>
+            <td>Optimized for React + Vite apps</td>
+        </tr>
+        <tr>
+            <td>Backend</td>
+            <td>Heroku, Render, AWS Lambda, Azure</td>
+            <td>Node.js compatible hosting</td>
+        </tr>
+        <tr>
+            <td>Database</td>
+            <td>Firebase (Firestore)</td>
+            <td>Managed NoSQL database</td>
+        </tr>
+    </table>
+</div>
+
+<!-- SLIDE 11: PERFORMANCE & SCALABILITY -->
+<div class="page page-break">
+    <h2>Performance & Scalability</h2>
+    
+    <h3>Frontend Performance</h3>
+    <ul>
+        <li><strong>Vite:</strong> Ultra-fast build tool with instant HMR (Hot Module Replacement)</li>
+        <li><strong>Code Splitting:</strong> Automatic route-based code splitting</li>
+        <li><strong>Lazy Loading:</strong> Components load on demand</li>
+        <li><strong>Tree Shaking:</strong> Unused code is eliminated in production</li>
+        <li><strong>CSS Optimization:</strong> Tailwind CSS purges unused styles</li>
+    </ul>
+    
+    <h3>Backend Scalability</h3>
+    <ul>
+        <li><strong>Stateless Design:</strong> Server instances are interchangeable</li>
+        <li><strong>Load Balancing:</strong> Can run multiple instances behind a load balancer</li>
+        <li><strong>Database Scaling:</strong> Firestore auto-scales with demand</li>
+        <li><strong>Caching:</strong> Implement Redis for session management</li>
+        <li><strong>Microservices:</strong> Can decompose into separate services if needed</li>
+    </ul>
+    
+    <h3>Monitoring & Optimization</h3>
+    <ul>
+        <li>Google Cloud Monitoring for Firestore</li>
+        <li>Application Performance Monitoring (APM) tools</li>
+        <li>Error tracking with Sentry</li>
+        <li>Analytics with Google Analytics 4</li>
+    </ul>
+</div>
+
+<!-- SLIDE 12: FUTURE ENHANCEMENTS -->
+<div class="page page-break">
+    <h2>Future Enhancements & Roadmap</h2>
+    
+    <h3>Short-term (1-3 months)</h3>
+    <ul>
+        <li>Complete biometric verification integration</li>
+        <li>Implement full face recognition system</li>
+        <li>Add appointment scheduling module</li>
+        <li>Create prescription management system</li>
+        <li>Add SMS/Email notifications</li>
+    </ul>
+    
+    <h3>Mid-term (3-6 months)</h3>
+    <ul>
+        <li>Mobile app development (React Native)</li>
+        <li>Advanced analytics and reporting</li>
+        <li>Integration with hospital management systems</li>
+        <li>Telehealth capabilities</li>
+        <li>Inventory management module</li>
+    </ul>
+    
+    <h3>Long-term (6+ months)</h3>
+    <ul>
+        <li>AI-powered diagnosis assistance</li>
+        <li>Blockchain for medical records</li>
+        <li>Machine learning for predictive analytics</li>
+        <li>Multi-language support</li>
+        <li>Compliance with global healthcare standards (HIPAA, GDPR)</li>
+    </ul>
+</div>
+
+<!-- SLIDE 13: Q&A & TROUBLESHOOTING -->
+<div class="page page-break">
+    <h2>Q&A & Troubleshooting</h2>
+    
+    <h3>Common Questions</h3>
+    
+    <p><strong>Q: How is authentication handled?</strong></p>
+    <p><strong>A:</strong> We use Firebase Authentication with JWT tokens. The backend validates tokens before processing requests.</p>
+    
+    <p><strong>Q: Where is data stored?</strong></p>
+    <p><strong>A:</strong> All data is stored in Google Cloud Firestore, accessed through Firebase Admin SDK.</p>
+    
+    <p><strong>Q: How do we ensure data security?</strong></p>
+    <p><strong>A:</strong> We use Firestore Security Rules, HTTPS encryption, and role-based access control.</p>
+    
+    <p><strong>Q: Can the system scale?</strong></p>
+    <p><strong>A:</strong> Yes. Firestore auto-scales, and the backend is stateless, so we can add more instances.</p>
+    
+    <h3>Troubleshooting Guide</h3>
+    
+    <table>
+        <tr>
+            <th>Issue</th>
+            <th>Solution</th>
+        </tr>
+        <tr>
+            <td>Node.js not found</td>
+            <td>Install from nodejs.org, restart terminal/VS Code</td>
+        </tr>
+        <tr>
+            <td>Firebase credentials error</td>
+            <td>Ensure .env has GOOGLE_APPLICATION_CREDENTIALS and service-account-key.json exists</td>
+        </tr>
+        <tr>
+            <td>Port 5000/5173 already in use</td>
+            <td>Change PORT in .env or kill existing processes</td>
+        </tr>
+        <tr>
+            <td>npm not recognized</td>
+            <td>Use npm.cmd on Windows PowerShell</td>
+        </tr>
+        <tr>
+            <td>CORS errors</td>
+            <td>Check backend CORS configuration in server.js</td>
+        </tr>
+    </table>
+</div>
+
+<!-- SLIDE 14: CONCLUSION -->
+<div class="page page-break">
+    <h2>Conclusion</h2>
+    
+    <div class="highlight-box">
+        <h3>Key Takeaways</h3>
+        <ul>
+            <li>✅ Modern tech stack (React, Vite, Node.js, Firebase)</li>
+            <li>✅ Secure authentication and data management</li>
+            <li>✅ Scalable and maintainable architecture</li>
+            <li>✅ User-friendly interface for patients and doctors</li>
+            <li>✅ Ready for deployment and real-world use</li>
+        </ul>
+    </div>
+    
+    <h3>Impact</h3>
+    <p>Hospital01 demonstrates how modern web technologies can streamline healthcare management, improve patient outcomes, and enhance operational efficiency. The application provides a solid foundation for a comprehensive hospital information system.</p>
+    
+    <h3>Next Steps</h3>
+    <ul>
+        <li>Gather user feedback on the prototype</li>
+        <li>Implement additional features based on feedback</li>
+        <li>Begin production deployment preparation</li>
+        <li>Plan mobile app development</li>
+        <li>Establish security compliance and testing protocols</li>
+    </ul>
+    
+    <div class="footer">
+        <p><strong>Hospital01 - Full-Stack Hospital Management System</strong></p>
+        <p>Presentation Report | November 11, 2025</p>
+    </div>
+</div>
+
+</body>
+</html>
