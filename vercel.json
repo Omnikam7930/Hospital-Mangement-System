@@ -1,0 +1,12 @@
+{
+  "buildCommand": "cd Hospital-main && npm install && npm run build",
+  "outputDirectory": "Hospital-main/dist",
+  "devCommand": "cd Hospital-main && npm run dev",
+  "framework": "vite",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}

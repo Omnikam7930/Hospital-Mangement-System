@@ -1,1 +1,4 @@
-node_modules
+node_modulesservice-account-key.json
+.env
+.env.local
+*.log
