@@ -112,28 +112,28 @@ function App() {
             <div>
               <h3 className="text-lg font-semibold mb-4">Development Team</h3>
               <div className="space-y-1 text-gray-300">
-                <p>Snehal Kadam</p>
-                <p>Krishna Kadam</p>
-                <p>Atharva Keval</p>
-                <p>Anushka Deokar</p>
-                <p>Pallavi Gunjal</p>
-                <p>Sanika Kale</p>
+                <p>Atharava Keval</p>
+                <p>Sahil Shelkar</p>
+                <p>Om Nikam</p>
+                <p>Nikhil Nikam</p>
+                <p>Aditya Vairagar</p>
+                <p>Sudhanshu Raktate</p>
               </div>
             </div>
             
             <div>
               <h3 className="text-lg font-semibold mb-4">Contact Information</h3>
               <div className="space-y-2 text-gray-300">
-                <p>snehalKadam2030@gmail.com</p>
-                <p>+91 8329656866</p>
-                <p className="mt-4">Sanjivani College of Engineering</p>
-                <p>Kopargaon, Maharashtra</p>
+                <p>omnikam7930@gmail.com</p>
+                <p>+91 70284038390</p>
+                <p className="mt-4">Ajjenkya Dy Patil College of Engineering</p>
+                <p>Pune, Maharashtra</p>
               </div>
             </div>
           </div>
           
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>© 2024 LifeLine Emergency Health Records System. Developed by students of Sanjivani College of Engineering.</p>
+            <p>© 2024 LifeLine Emergency Health Records System. Developed by students of Ajjenkya Dy Patil College of Engineering.</p>
           </div>
         </div>
       </footer>
