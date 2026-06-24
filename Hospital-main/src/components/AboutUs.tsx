@@ -7,12 +7,12 @@ interface AboutUsProps {
 
 const AboutUs: React.FC<AboutUsProps> = ({ onNavigate }) => {
   const teamMembers = [
-    { name: "Snehal Kadam", role: "Lead Developer", description: "Project lead and full-stack development" },
-    { name: "Krishna Kadam", role: "Backend Developer", description: "Database design and API development" },
-    { name: "Atharva Keval", role: "Frontend Developer", description: "User interface and experience design" },
-    { name: "Anushka Deokar", role: "UI/UX Designer", description: "Visual design and user research" },
-    { name: "Pallavi Gunjal", role: "Database Designer", description: "Database architecture and optimization" },
-    { name: "Sanika Kale", role: "Quality Assurance", description: "Testing and quality control" }
+    { name: "Atharava Keval", role: "Lead Developer", description: "Project lead and full-stack development" },
+    { name: "Sahil Shelkar", role: "Backend Developer", description: "Database design and API development" },
+    { name: "Om Nikam", role: "Frontend Developer", description: "User interface and experience design" },
+    { name: "Nikhil Nikam", role: "UI/UX Designer", description: "Visual design and user research" },
+    { name: "Aditya Vairagar", role: "Database Designer", description: "Database architecture and optimization" },
+    { name: "Sudhanshu Raktate", role: "Quality Assurance", description: "Testing and quality control" }
   ];
 
   const userSteps = [
@@ -151,11 +151,11 @@ const AboutUs: React.FC<AboutUsProps> = ({ onNavigate }) => {
                 <div className="space-y-4">
                   <div className="flex items-center">
                     <Mail className="h-5 w-5 mr-3 text-blue-400" />
-                    <span>snehalKadam2030@gmail.com</span>
+                    <span>omnikam7930@gmail.com</span>
                   </div>
                   <div className="flex items-center">
                     <Phone className="h-5 w-5 mr-3 text-blue-400" />
-                    <span>+91 8329656866</span>
+                    <span>+91 7028403839</span>
                   </div>
                 </div>
               </div>
@@ -166,8 +166,8 @@ const AboutUs: React.FC<AboutUsProps> = ({ onNavigate }) => {
                   <div className="flex items-start">
                     <MapPin className="h-5 w-5 mr-3 text-blue-400 mt-1" />
                     <div>
-                      <p className="font-semibold">Sanjivani College of Engineering</p>
-                      <p className="text-gray-300">Kopargaon, Maharashtra</p>
+                      <p className="font-semibold">Ajjenkya Dy patil  College of Engineering</p>
+                      <p className="text-gray-300">Pune, Maharashtra</p>
                     </div>
                   </div>
                 </div>
